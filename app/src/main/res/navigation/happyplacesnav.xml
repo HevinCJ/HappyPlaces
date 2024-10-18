@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/happyplacesnav"
+    app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.example.happyplaces.fragment.Home"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home_to_details"
+            app:destination="@id/details" />
+        <action
+            android:id="@+id/action_home_to_addPlace"
+            app:destination="@id/addPlace" />
+    </fragment>
+    <fragment
+        android:id="@+id/details"
+        android:name="com.example.happyplaces.fragment.Details"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" >
+        <action
+            android:id="@+id/action_details_to_home"
+            app:destination="@id/home" />
+        <argument
+            android:name="details"
+            app:argType="com.example.happyplaces.models.Destination" />
+        <action
+            android:id="@+id/action_details_to_updatePlace"
+            app:destination="@id/updatePlace" />
+    </fragment>
+    <fragment
+        android:id="@+id/addPlace"
+        android:name="com.example.happyplaces.fragment.AddPlace"
+        android:label="fragment_add_place"
+        tools:layout="@layout/fragment_add_place" >
+        <action
+            android:id="@+id/action_addPlace_to_home"
+            app:destination="@id/home" />
+    </fragment>
+    <fragment
+        android:id="@+id/updatePlace"
+        android:name="com.example.happyplaces.fragment.UpdatePlace"
+        android:label="fragment_update_place"
+        tools:layout="@layout/fragment_update_place" >
+        <action
+            android:id="@+id/action_updatePlace_to_details"
+            app:destination="@id/details" />
+        <action
+            android:id="@+id/action_updatePlace_to_home"
+            app:destination="@id/home" />
+        <argument
+            android:name="updateArgs"
+            app:argType="com.example.happyplaces.models.Destination" />
+    </fragment>
+</navigation>
